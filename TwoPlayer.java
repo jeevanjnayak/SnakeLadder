@@ -13,7 +13,7 @@ public class TwoPlayer {
         DiceRolled1 = game(DiceRolled1 , RandNum);
         DiceRolled2 = game(DiceRolled2 , RandNum);
         int Diff = DiceRolled1 - DiceRolled2;
-        if(Diff >= 0)
+        if(Diff <= 0)
             System.out.println("player1 is the winner");
         else
             System.out.println("player2 is the winner");
@@ -26,6 +26,8 @@ public class TwoPlayer {
             RandNum = (int) Math.floor(Math.random() * (Max - Min + 1) + Min);
             DiceRolled += 1;
             int TempPosition = (int) Math.floor(Math.random() * 10) % 3;
+            if(TempPosition == 1)
+                DiceRolled -=1;
             switch (TempPosition) {
                 case Ladder:
                     Position += RandNum;
